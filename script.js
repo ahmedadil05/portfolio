@@ -22,3 +22,38 @@
     status.textContent = 'Opening your email app…';
   });
 })();
+
+
+// Theme toggle: lets a visitor override the automatic light/dark mode
+// that follows their system setting, and remembers the choice.
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+
+  function applyTheme(theme) {
+    if (theme === 'light' || theme === 'dark') {
+      root.setAttribute('data-theme', theme);
+    } else {
+      root.removeAttribute('data-theme');
+    }
+    if (btn) {
+      var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      btn.textContent = isDark ? '☀️' : '🌙';
+      btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+
+  applyTheme(stored);
+
+  if (btn) {
+    btn.addEventListener('click', function () {
+      var current = root.getAttribute('data-theme');
+      var isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      var next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  }
+})();
