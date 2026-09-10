@@ -348,6 +348,12 @@ section{padding-block:52px;}
 @media (max-width:720px){.proj-card.feature{grid-column:span 1;}}
 .proj-top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
 .proj-title{font-size:1.1rem; font-weight:700; font-family:'Unbounded', sans-serif;}
+.status-group{display:flex; gap:6px; flex:none; flex-wrap:wrap; justify-content:flex-end;}
+.proj-link{
+  font-family:'IBM Plex Mono', monospace; font-size:0.8rem; font-weight:600;
+  color:var(--teal); text-decoration:none; display:inline-block;
+}
+.proj-link:hover{text-decoration:underline;}
 .status{
   font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.04em;
   padding:4px 9px; border-radius:100px; white-space:nowrap; flex:none;
