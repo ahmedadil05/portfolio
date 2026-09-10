@@ -161,6 +161,14 @@ img{max-width:100%;}
   white-space:nowrap;
 }
 .nav-links a:hover{color:var(--ink); background:var(--surface);}
+.theme-toggle{
+  flex:none;
+  width:36px; height:36px; border-radius:9px;
+  border:1px solid var(--line); background:var(--surface);
+  font-size:1rem; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+.theme-toggle:hover{border-color:var(--ink-faint);}
 
 /* ---------- Hero ---------- */
 .hero{
